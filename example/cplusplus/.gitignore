@@ -1,0 +1,3 @@
+# ignore cplusplus artifacts folders
+build
+install

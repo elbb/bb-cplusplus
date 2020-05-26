@@ -3,10 +3,12 @@
 # ===================================================
 
 meta:
-  project: bb-buildingblock
+  project: bb-cplusplus
   include:
-  - dobi.yaml
-  - version.yaml
+    - dobi.yaml
+    - version.yaml
+    - cplusplus/dobi.yaml
+    - example/cplusplus/dobi.yaml
 
 # ===================================================
 # alias
@@ -14,24 +16,24 @@ meta:
 
 alias=version:
   tasks:
-  - bb-buildingblock-version
+    - bb-cplusplus-version
   annotations:
-    description: "[alias] bb-buildingblock-version"
+    description: "[alias] bb-cplusplus-version"
 
 alias=build:
   tasks:
-  - bb-buildingblock-build
+    - bb-cplusplus-build
   annotations:
-    description: "[alias] bb-buildingblock-build"
-  
+    description: "[alias] bb-cplusplus-build"
+
 alias=deploy:
   tasks:
-  - bb-buildingblock-deploy
+    - bb-cplusplus-deploy
   annotations:
-    description: "[alias] bb-buildingblock-deploy"
-  
-alias=test: 
+    description: "[alias] bb-cplusplus-deploy"
+
+alias=test:
   tasks:
-  - bb-buildingblock-test
-  annotations: 
-    description: "[alias] bb-buildingblock-test"
+    - bb-cplusplus-test
+  annotations:
+    description: "[alias] bb-cplusplus-test"

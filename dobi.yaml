@@ -2,23 +2,26 @@
 # alias
 # ===================================================
 
-alias=bb-buildingblock-version:
+alias=bb-cplusplus-version:
   tasks:
-  - buildingblock-version
+    - cplusplus-version
   annotations:
     description: "-> generate version informations (auto called by dobi.sh)"
 
-alias=bb-buildingblock-build:
-  tasks: []
+alias=bb-cplusplus-build:
+  tasks:
+    - cplusplus-build
   annotations:
-    description: "-> build all content (not implemented yet)"
+    description: "-> build all content"
 
-alias=bb-buildingblock-deploy:
-  tasks: []
+alias=bb-cplusplus-deploy:
+  tasks:
+    - cplusplus-deploy
   annotations:
-    description: "-> deploy all content (not implemented yet)"
+    description: "-> deploy all content"
 
-alias=bb-buildingblock-test: 
-  tasks: []
-  annotations: 
-    description: "-> test all content (not implemented yet)"
+alias=bb-cplusplus-test:
+  tasks:
+    - cplusplus-test
+  annotations:
+    description: "-> test all content"

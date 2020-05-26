@@ -2,12 +2,12 @@
 # mount points
 # ===================================================
 
-mount=mount-buildingblock-gitversion-source-dir:
+mount=mount-cplusplus-gitversion-source-dir:
   bind: "{fs.projectdir}"
   path: /git
   read-only: false # needs to be read/write to work correctly!
 
-mount=mount-buildingblock-gitversion-gen-dir:
+mount=mount-cplusplus-gitversion-gen-dir:
   bind: "{fs.projectdir}/gen/gitversion"
   path: /gen
   read-only: false
@@ -16,7 +16,7 @@ mount=mount-buildingblock-gitversion-gen-dir:
 # images
 # ===================================================
 
-image=image-buildingblock-gitversion:
+image=image-cplusplus-gitversion:
   image: elbb/bb-gitversion
   tags: ["0.4.2"]
   pull: once
@@ -25,11 +25,11 @@ image=image-buildingblock-gitversion:
 # jobs
 # ===================================================
 
-job=buildingblock-version:
-  use: image-buildingblock-gitversion
+job=cplusplus-version:
+  use: image-cplusplus-gitversion
   mounts:
-    - mount-buildingblock-gitversion-source-dir
-    - mount-buildingblock-gitversion-gen-dir
+    - mount-cplusplus-gitversion-source-dir
+    - mount-cplusplus-gitversion-gen-dir
   sources: "./"
   artifact: "gen/gitversion/"
   env:

@@ -1,0 +1,26 @@
+# ===================================================
+# images
+# ===================================================
+image=image-cplusplus-builder:
+  image: elbb/bb-cplusplus-builder
+  context: cplusplus/builder
+  tags: ["{env.GitVersion_MajorMinorPatch}"]
+
+image=image-cplusplus-runtime:
+  image: elbb/bb-cplusplus-runtime
+  context: cplusplus/runtime
+  tags: ["{env.GitVersion_MajorMinorPatch}"]
+
+# ===================================================
+# alias
+# ===================================================
+
+alias=cplusplus-build:
+  tasks:
+    - image-cplusplus-builder
+    - image-cplusplus-runtime
+
+alias=cplusplus-deploy:
+  tasks:
+    - image-cplusplus-builder:push
+    - image-cplusplus-runtime:push
