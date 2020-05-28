@@ -1,3 +1,4 @@
 # ignore cplusplus artifacts folders
 build
 install
+source/.clang-format

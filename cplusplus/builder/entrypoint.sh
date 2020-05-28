@@ -13,7 +13,4 @@ export HOME=/home/user
 mkdir -p /build
 chown user:user /build
 
-# Adding user to group tty fixes startup issues when running supervisord as user
-usermod -aG tty user
-
 exec gosu user "$@"

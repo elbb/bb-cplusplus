@@ -4,6 +4,7 @@
 mount=mount-source:
   bind: example/cplusplus/source
   path: /source
+  read-only: true
 
 mount=mount-build:
   bind: example/cplusplus/build
