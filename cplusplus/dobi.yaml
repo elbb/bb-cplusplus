@@ -4,12 +4,12 @@
 image=image-cplusplus-builder:
   image: elbb/bb-cplusplus-builder
   context: cplusplus/builder
-  tags: ["{env.GitVersion_MajorMinorPatch}"]
+  tags: ["{env.GitVersionBranch}"]
 
 image=image-cplusplus-runtime:
   image: elbb/bb-cplusplus-runtime
   context: cplusplus/runtime
-  tags: ["{env.GitVersion_MajorMinorPatch}"]
+  tags: ["{env.GitVersionBranch}"]
 
 # ===================================================
 # alias

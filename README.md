@@ -1,8 +1,25 @@
 <img src="https://raw.githubusercontent.com/elbb/bb-buildingblock/master/.assets/logo.png" height="200">
 
-# embedded linux building block template
+# # (e)mbedded (l)inux (b)uilding (b)locks - containerized C++ build and runtime
 
-This code serves as a template for the creation of further building blocks with the purpose of giving all blocks a uniform structure and usage.
+This building block offers a way to build and run any C++ project in a containerized manner and offers:
+
+-   C++ builder docker image
+-   C++ runtime docker image
+-   local and CI/CD build system
+
+# Build
+
+_There is normally no need to build this building block manually. For the integration
+into your project it is sufficient to use the image on hub.docker.com as described
+in the Usage section._
+
+The corresponding image can be created manually or e.g. via dobi (<https://github.com/dnephin/dobi>), the way described here.
+
+## Prerequisites
+
+-   dobi (<https://github.com/dnephin/dobi>)
+-   docker (<https://docs.docker.com/install/>)
 
 ## Using dobi for local build
 
@@ -15,12 +32,6 @@ By default three dobi resources are predefined (but not implemented):
 ./dobi.sh test   # run all tests
 ./dobi.sh deploy # deploy the building block
 ```
-
-These point to the resources defined in dobi.yaml.
-The separation between meta.yaml and dobi.yaml is necessary to integrate the building block into another building block via dobi.
-
-Version information is generated automatically from git history by using building block bb-gitversion (<https://github.com/elbb/bb-gitversion>).
-In the dobi files you can reference to this generated version information by accessing them with e.g. `{env.GitVersion_MajorMinorPatch}`. See the `gen/env/gitversion.env` file for defined env variables to use.
 
 ## Using concourse CI for a CI/CD build
 

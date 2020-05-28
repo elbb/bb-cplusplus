@@ -7,26 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.2.1] - 2020-05-28
-
--   adapt pipeline for bb-gitversion fixes (bb-gitversion#9)
--   added 'passed' marker of gitversion creation in concourse pipeline in example #20
-
-## [0.2.0] - 2020-05-25
-
--   default concourse CI environment for CI/CD builds
-
-### Added
-
--   default concourse CI pipeline
-
-## [0.1.0] - 2020-03-29
+## [0.1.0] - 2020-05-28
 
 Initial Version
 
 ### Added
 
--   dobi environment template for local builds
--   license informations (MIT and Apache V 2.0)
--   changelog template
--   automated versioning (using elbb/bb-gitversion)
+-   C++ builder and runtime images for x86_64
+-   'hello world' example
+-   concourse environment for ci/cd builds
+-   dobi environment for local builds
+-   automated versioning with elbb/bb-gitversion 0.5.0
+-   integrated bb-buildingblock 0.2.1
