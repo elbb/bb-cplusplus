@@ -7,7 +7,7 @@ LABEL uri="https://github.com/elbb/bb-cplusplus"
 
 RUN apt-get update &&  \
     apt-get install -y --no-install-recommends \
-    gosu &&\
+    gosu && \
     apt-get clean
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
