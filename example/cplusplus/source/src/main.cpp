@@ -1,11 +1,13 @@
+#include <chrono>
 #include <iostream>
+#include <thread>
 
 int main(int argc, char* argv[])
 {
-  std::cout << "Hello world! Waiting to be killed." << std::endl;
-  while (1)
-  {
-    // stay here until terminated
-  }
-  return 0;
+    while (true)
+    {
+        std::cout << "Hello world! Waiting to be terminated." << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+    }
+    return 0;
 }
