@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/elbb/bb-buildingblock/master/.assets/logo.png" height="200">
 
-# # (e)mbedded (l)inux (b)uilding (b)locks - containerized C++ build and runtime
+# # (e)mbedded (l)inux (b)uilding (b)locks - containerized C++ build and runtime environment
 
 This building block offers a way to build and run any C++ project in a containerized manner and offers:
 
@@ -8,20 +8,23 @@ This building block offers a way to build and run any C++ project in a container
 -   C++ runtime docker image
 -   local and CI/CD build system
 
+There is also an example that shows the usage with a 'hello world' application.
+
 # Build
 
-_There is normally no need to build this building block manually. For the integration
-into your project it is sufficient to use the image on hub.docker.com as described
-in the Usage section._
+It is highly recommended to modify this building block for your needs. For the integration
+into your project you should modify the builder and runtime Dockerfiles. 
 
-The corresponding image can be created manually or e.g. via dobi (<https://github.com/dnephin/dobi>), the way described here.
+The images can be created locally manually or e.g. via dobi (<https://github.com/dnephin/dobi>) or via concourse CI.
 
-## Prerequisites
+## Using dobi for local build
+
+### Prerequisites
 
 -   dobi (<https://github.com/dnephin/dobi>)
 -   docker (<https://docs.docker.com/install/>)
 
-## Using dobi for local build
+### Using dobi
 
 dobi should only be used via the `dobi.sh` script, because there important variables are set and the right scripts are included.
 
