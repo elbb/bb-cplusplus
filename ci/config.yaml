@@ -12,7 +12,7 @@ bb_destination_insecure_registries: []
 # Versioning stuff
 # ----------------
 ## Specifies the version used for bb-gitversion
-bb_gitversion_version: 0.4.2
+bb_gitversion_version: 0.5.0
 
 # Git relevant stuff
 # ------------------
