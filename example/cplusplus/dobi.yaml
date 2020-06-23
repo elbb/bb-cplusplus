@@ -19,10 +19,23 @@ mount=mount-gen:
   path: /gen
 
 # ===================================================
+# images
+# ===================================================
+image=image-elbb-cplusplus-builder:
+  image: elbb/bb-cplusplus-builder
+  tags: [0.1.0-71]
+  pull: once
+
+image=image-elbb-cplusplus-runtime:
+  image: elbb/bb-cplusplus-runtime
+  tags: [0.1.0-71]
+  pull: once
+
+# ===================================================
 # jobs
 # ===================================================
 job=build-hello-world:
-  use: image-cplusplus-builder
+  use: image-elbb-cplusplus-builder
   mounts:
     - mount-source
     - mount-build
@@ -41,7 +54,7 @@ job=build-hello-world:
     description: "-> build hello-world"
 
 job=test-hello-world:
-  use: image-cplusplus-runtime
+  use: image-elbb-cplusplus-runtime
   depends:
     - build-hello-world
   mounts:
