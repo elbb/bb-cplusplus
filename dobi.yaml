@@ -10,18 +10,22 @@ alias=bb-cplusplus-version:
 
 alias=bb-cplusplus-build:
   tasks:
-    - cplusplus-build
+    - cplusplus-builder-build
+    - cplusplus-runtime-build
+    - cplusplus-service-build
   annotations:
     description: "-> build all content"
 
 alias=bb-cplusplus-deploy:
   tasks:
-    - cplusplus-deploy
+    - cplusplus-builder-deploy
+    - cplusplus-runtime-deploy
+    # - cplusplus-service-deploy
   annotations:
     description: "-> deploy all content"
 
-alias=bb-cplusplus-test:
-  tasks:
-    - cplusplus-test
-  annotations:
-    description: "-> test all content"
+# alias=bb-cplusplus-test:
+#   tasks:
+#     - cplusplus-test
+#   annotations:
+#     description: "-> test all content"

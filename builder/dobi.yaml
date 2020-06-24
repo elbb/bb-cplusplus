@@ -3,24 +3,17 @@
 # ===================================================
 image=image-cplusplus-builder:
   image: elbb/bb-cplusplus-builder
-  context: cplusplus/builder
-  tags: ["{env.GitVersionBranch}"]
-
-image=image-cplusplus-runtime:
-  image: elbb/bb-cplusplus-runtime
-  context: cplusplus/runtime
+  context: builder
   tags: ["{env.GitVersionBranch}"]
 
 # ===================================================
 # alias
 # ===================================================
 
-alias=cplusplus-build:
+alias=cplusplus-builder-build:
   tasks:
     - image-cplusplus-builder
-    - image-cplusplus-runtime
 
-alias=cplusplus-deploy:
+alias=cplusplus-builder-deploy:
   tasks:
     - image-cplusplus-builder:push
-    - image-cplusplus-runtime:push

@@ -1,0 +1,19 @@
+# ===================================================
+# images
+# ===================================================
+image=image-cplusplus-runtime:
+  image: elbb/bb-cplusplus-runtime
+  context: runtime
+  tags: ["{env.GitVersionBranch}"]
+
+# ===================================================
+# alias
+# ===================================================
+
+alias=cplusplus-runtime-build:
+  tasks:
+    - image-cplusplus-runtime
+
+alias=cplusplus-runtime-deploy:
+  tasks:
+    - image-cplusplus-runtime:push

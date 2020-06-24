@@ -1,0 +1,60 @@
+# ===================================================
+# mounts
+# ===================================================
+mount=mount-cplusplus-service-source:
+  bind: service
+  path: /source
+  read-only: true
+
+mount=mount-cplusplus-service-build:
+  bind: build/cplusplus-service
+  path: /build
+
+mount=mount-cplusplus-service-install:
+  bind: gen/cplusplus-service
+  path: /install
+
+mount=mount-cplusplus-service-version:
+  bind: gen/gitversion/cpp/elbb
+  path: /usr/local/include/elbb/
+
+# ===================================================
+# jobs
+# ===================================================
+job=cplusplus-service-build:
+  use: image-cplusplus-builder
+  mounts:
+    - mount-cplusplus-service-source
+    - mount-cplusplus-service-build
+    - mount-cplusplus-service-install
+    - mount-cplusplus-service-version
+  command: sh -c 'cd /build && cmake /source -DCMAKE_INSTALL_PREFIX=/install && make ${COMPONENT} && make install'
+  sources:
+    - service
+  artifact:
+    - gen/cplusplus-service
+  env:
+    - "LOCAL_USER_ID={user.uid}"
+    - "COMPONENT={env.COMPONENT:all}"
+  annotations:
+    description: "-> build clpusplus-service"
+
+# job=test-cplusplus-service:
+#   use: image-cplusplus-runtime
+#   depends:
+#     - build-hello-world
+#   mounts:
+#     - mount-install
+#   command: sh -c '/install/hello_world'
+#   env:
+#     - "LOCAL_USER_ID={user.uid}"
+#   annotations:
+#     description: "-> run hello-world"
+
+# ===================================================
+# alias
+# ===================================================
+
+# alias=cplusplus-test:
+#   tasks:
+#     - test-hello-world
