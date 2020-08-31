@@ -209,7 +209,7 @@ job=cplusplus-service-analyze-x86_64:
     - mount-cplusplus-service-build-x86_64
     - mount-cplusplus-service-version
   # Connect the container to the `dev environment` network
-  net-mode: 'elbb-dev'
+  net-mode: "{env.CODECHECKER_NET:elbb-dev}"
   command: sh -c 'if [ -z "${CODECHECKER_URL}" ]; then CODECHECKER_URL="http://codechecker-web:8001/Default"; fi; echo ${CODECHECKER_URL}; cd /build && CodeChecker analyze compile_commands.json -o reports/ &&
                                CodeChecker store reports/ --name "${PROJECT}" --url ${CODECHECKER_URL}'
   sources:
