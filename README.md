@@ -58,11 +58,10 @@ With the following dobi command, the analysis of the sample code can be started:
 ./dobi.sh analyze
 ```
 
-If you don't use the elbb dev environment, you can change the default CodeChecker URL of storing the analyze results with the following dobi command:
+If you don't use the elbb dev environment, you can change the default CodeChecker URL and specific network name of storing the analyze results with the following dobi command:
 
 ```sh
-CODECHECKER_URL=http://codechecker-web:8001/Default 
-./dobi.sh analyze
+CODECHECKER_URL=http://codechecker-web:8001/Default CODECHECKER_NET=elbb-dev ./dobi.sh analyze
 ```
 
 ## Using dobi for unit test
