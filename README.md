@@ -116,7 +116,7 @@ For further information how to configure doxygen, see:
 
 ### Using dobi to start debugging
 
-This building block provide a setup to debug a C++ component via remote debugging with a gdbserver.
+This building block provide a setup to debug a x86 C++ component via remote debugging with a gdbserver.
 
 For this purpose a dobi job is provided to do the startup of a gdb server. For demonstration purposes the Hello World service was used as test application. To start the debug session, the following command can be used.
 
@@ -126,7 +126,7 @@ For this purpose a dobi job is provided to do the startup of a gdb server. For d
 
 The navigation through the code, display of variables, setting breakpoints, etc., can be done with Visual Studio code or similar IDEs.
 
-Here is an example for the IDE vscode:
+##### Host precondition
 
 #### Setup - IDE (vscode)
 
@@ -142,7 +142,10 @@ An example launch.json (.vscode/launch.json) for application cplusplus_service c
 
 - program: ${workspaceRoot}/gen/cplusplus-service-x86_64-dev/cplusplus_service
 
-- miDebuggerServerAddress: localhost:1234
+- miDebuggerPath: "/usr/bin/gdb-multiarch"<br>
+location of the gdb-multiarch debugger of your host system
+
+- miDebuggerServerAddress: localhost:1234<br>
 The Docker container starts a gdbserver at port 1234 and maps it to localhosts port 1234
 
 - sourceFileMap:
@@ -167,6 +170,7 @@ Therefore a mapping from  /source to  service must be setup in the sourceFileMap
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",            
             "miDebuggerServerAddress": "localhost:1234",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
