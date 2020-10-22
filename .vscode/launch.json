@@ -8,14 +8,15 @@
             "name": "hello-world-x86_64 (remote gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/gen/cplusplus-service-x86_64-dev/cplusplus_service",
+            "program": "/install/cplusplus_service",
             "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
+            "cwd": "/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",            
-            "miDebuggerServerAddress": "localhost:1234",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
+            "miDebuggerServerAddress": "172.20.0.1:1234",
+            "miDebuggerArgs": "x86_64",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
             },
@@ -31,14 +32,15 @@
             "name": "hello-world-armv7 (remote gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/gen/cplusplus-service-armv7hf-dev/cplusplus_service",
+            "program": "/install/cplusplus_service",
             "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
+            "cwd": "/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
             "miDebuggerServerAddress": "172.18.18.100:1234",
+            "miDebuggerArgs": "armv7hf",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
             },
@@ -54,14 +56,15 @@
             "name": "hello-world-aarch64 (remote gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/gen/cplusplus-service-aarch64-dev/cplusplus_service",
+            "program": "/install/cplusplus_service",
             "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
+            "cwd": "/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
             "miDebuggerServerAddress": "172.18.18.99:1234",
+            "miDebuggerArgs": "aarch64",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
             },
@@ -72,6 +75,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },                    
+        },
     ]
 }
