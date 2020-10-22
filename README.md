@@ -139,7 +139,7 @@ In order to make a remote gdb connection to the gdbserver running in the contain
 The gdb debugger itself, called gdb-multiarch, is availabe in a docker image elbb/bb-cplusplus-builder.
 A local installation of the gdb debugger is not neccessary on your host system.
 
-This buildblock provides a bash script, called gdb-multiarch.sh to handle the communication to the gdb debugger.
+This buildblock provides a bash script, called gdb-multiarch.sh to handle the communication to the dockerized gdb debugger.
 
 An example launch.json (.vscode/launch.json) for application cplusplus_service could look like this.
 
