@@ -17,7 +17,7 @@ else
 fi
 
 if [ $(docker ps | grep ${container_name} | wc -l) -eq 0 ]; then
-    docker run --rm -i -d --privileged -v ${binary_dir} --name "${container_name}" elbb/bb-cplusplus-builder:${VERSION_CPLUSPLUS_BUILDER_IMAGE} /bin/bash
+    docker run --rm -i -d -v ${binary_dir} --name "${container_name}" elbb/bb-cplusplus-builder:${VERSION_CPLUSPLUS_BUILDER_IMAGE} /bin/bash
 fi
 docker exec -i  ${container_name} gdb-multiarch $1
 docker stop ${container_name}
