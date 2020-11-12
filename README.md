@@ -124,15 +124,15 @@ For this purpose a dobi job is provided to do the startup of a gdbserver. For de
 ./dobi.sh debug
 ```
 
-The navigation through the code, display of variables, setting breakpoints, etc., can be done with Visual Studio code or similar IDEs.
-
-##### Host precondition
+The gdbserver is now ready and waiting for a connection to a gdb debugger.
 
 #### Setup - IDE (vscode)
 
+The navigation through the code, display of variables, setting breakpoints, etc., can be done with Visual Studio code or similar IDEs.
 Before debugging C++ code in Visual Studio Code (vscode) you have to install the extension 'Native Debug` by WebFreak <https://github.com/WebFreak001/code-debug>
 
 #### Debug configuration - launch.json
+
 This section describes the process of connecting to a remote gdb session via vscode.
 In order to make a remote gdb connection to the gdbserver running in the container you have to configure your launch.json.
 
@@ -193,6 +193,43 @@ Therefore a mapping from  /source to  service must be setup in the sourceFileMap
     ]
 }
 ```
+#### Remote target debugging
+
+This building block provides also a cross-compiled "service hello world example" for aarch64 and armv7 architecture. 
+
+The next steps are exemplary for the aarch64 architecture and show the way to remote debugging on the target.
+
+ **at host system**
+- generate with dobi a service build docker image
+
+```sh
+./dobi.sh cplusplus-service-build-aarch64-dev
+```
+**at target system**
+- store the docker image on your target
+
+- start the docker image on your target
+
+```sh
+docker run --rm -it --privileged --entrypoint /bin/bash -p 1234:1234 xxXXxxXX/bb-cplusplus-service-aarch64-dev
+```
+
+- start gdbserver in running target container
+
+```sh
+gdbserver :1234 /usr/local/bin/cplusplus_service
+```
+**at host system**
+
+This buildblock provide a visual studio code example debug file (.vscode/launch.json).
+
+- open launch.json
+
+- see chapter "name": "hello-world-aarch64 (remote gdb)"
+
+- adjust ip address of element "miDebuggerServerAddress"
+
+- start debug session "hello-world-aarch64 (remote gdb)"
 
 ### Default project variables
 
