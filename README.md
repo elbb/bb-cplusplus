@@ -118,7 +118,7 @@ For further information how to configure doxygen, see:
 
 This building block provides a setup to debug a x86 C++ component via remote debugging with a gdbserver.
 
-For this purpose a dobi job is provided to do the startup of a gdbserver. For demonstration purposes, the Hello World service was used as test application. To start the debug session, the following command can be used.
+For this purpose a dobi job is provided to do the startup of a gdbserver. For demonstration purposes, the "Hello World" service was used as test application. To start the debug session, the following command can be used.
 
 ```sh
 ./dobi.sh debug
@@ -199,19 +199,19 @@ This building block provides also a cross-compiled "service hello world example"
 
 The next steps are exemplary for the aarch64 architecture and show the way to remote debugging on the target.
 
- **at host system**
-- generate with dobi a service build docker image
-
+**at host system**
 ```sh
 ./dobi.sh cplusplus-service-build-aarch64-dev
 ```
-**at target system**
-- store the docker image on your target
+The creation of this example image for the aarch64 architecture was done using dobi. Of course the image can also be created with a CI/CD like concourse.
 
-- start the docker image on your target
+**at target system**
+- pull the docker image
+
+- start a docker container running the image
 
 ```sh
-docker run --rm -it --privileged --entrypoint /bin/bash -p 1234:1234 xxXXxxXX/bb-cplusplus-service-aarch64-dev
+docker run --rm -it --entrypoint /bin/bash -p 1234:1234 YourDockerImage
 ```
 
 - start gdbserver in running target container
@@ -221,7 +221,7 @@ gdbserver :1234 /usr/local/bin/cplusplus_service
 ```
 **at host system**
 
-This buildblock provide a visual studio code example debug file (.vscode/launch.json).
+This buildblock provides a visual studio code example debug file (.vscode/launch.json).
 
 - open launch.json
 
