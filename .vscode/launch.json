@@ -15,7 +15,7 @@
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
-            "miDebuggerServerAddress": "172.20.0.1:1234",
+            "miDebuggerServerAddress": "localhost:1234",
             "miDebuggerArgs": "x86_64",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"

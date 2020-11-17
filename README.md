@@ -149,9 +149,9 @@ An example launch.json (.vscode/launch.json) for application cplusplus_service c
 location of the binary file in the docker container
 
 - miDebuggerPath: "${workspaceFolder}/gdb-multiarch.sh"<br>
-location of the gdb-multiarch debugger of your host system
+location of the gdb-multiarch debugger
 
-- miDebuggerServerAddress: 172.20.0.1:1234<br>
+- miDebuggerServerAddress: localhost:1234<br>
 The Docker container starts a gdbserver at port 1234
 
 - sourceFileMap:
@@ -177,7 +177,7 @@ Therefore a mapping from  /source to  service must be setup in the sourceFileMap
             "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
-            "miDebuggerServerAddress": "172.20.0.1:1234",
+            "miDebuggerServerAddress": "localhost:1234",
             "miDebuggerArgs": "x86_64",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
