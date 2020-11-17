@@ -419,14 +419,10 @@ job=doxygen:
     description: "-> generate Doxygen documentation"
 
 job=debug:
-  use: image-cplusplus-runtime-x86_64-dev
-  depends:
-    - cplusplus-service-build-x86_64-dev
-  mounts:
-    - mount-cplusplus-service-source
-    - mount-cplusplus-service-install-x86_64-dev
+  use: image-cplusplus-service-x86_64-dev
+  depends: [image-cplusplus-service-x86_64-dev]
   net-mode: '{env.DOCKER_NETWORK}'
-  entrypoint: sh -c "/usr/local/bin/entrypoint.sh 'gdbserver :1234 /install/cplusplus_service'"
+  entrypoint: sh -c "/usr/local/bin/entrypoint.sh 'gdbserver :1234 /usr/local/bin/cplusplus_service'"
   ports: ["1234:1234"]
   env:
     - "LOCAL_USER_ID={user.uid}"

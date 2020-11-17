@@ -8,13 +8,63 @@
             "name": "hello-world-x86_64 (remote gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/gen/cplusplus-service-x86_64-dev/cplusplus_service",
+            "program": "/install/cplusplus_service",
             "stopAtEntry": true,
-            "cwd": "${workspaceRoot}",
+            "cwd": "/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
             "miDebuggerServerAddress": "localhost:1234",
+            "miDebuggerArgs": "x86_64",
+            "sourceFileMap": {
+                "/source/": "${workspaceFolder}/service/"
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "hello-world-armv7 (remote gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/install/cplusplus_service",
+            "stopAtEntry": true,
+            "cwd": "/",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
+            "miDebuggerServerAddress": "172.18.18.100:1234",
+            "miDebuggerArgs": "armv7hf",
+            "sourceFileMap": {
+                "/source/": "${workspaceFolder}/service/"
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },        
+        {
+            "name": "hello-world-aarch64 (remote gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/install/cplusplus_service",
+            "stopAtEntry": true,
+            "cwd": "/",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "${workspaceFolder}/gdb-multiarch.sh",
+            "miDebuggerServerAddress": "172.18.18.99:1234",
+            "miDebuggerArgs": "aarch64",
             "sourceFileMap": {
                 "/source/": "${workspaceFolder}/service/"
             },
