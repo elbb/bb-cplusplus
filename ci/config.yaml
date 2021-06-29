@@ -13,27 +13,22 @@ bb_insecure_registries: []
 bb_release_as_latest: true
 
 ## Specifies the version used for bb-gitversion
-bb_gitversion_version: 0.7.0
+bb_gitversion_version: 0.8.4
 
 ## Specifies the version used for cplusplus runtime and builder images
-bb_runtime_version: 0.1.1
-bb_builder_version: 0.1.1
+bb_runtime_version: 0.1.4
+bb_builder_version: 0.1.4
 
 # Git config
 # -----------------------------------------------------------------------------
 ## Specify the git repository to work with
 git_source: https://github.com/elbb/bb-cplusplus.git
 ## Specify the git branch to work with
-git_branch: master
+git_branch: main
+default_branch: main
+
 ## This enables/disables ssl verification of the git resource
 git_skip_ssl_verification: false
-
-# S3 config
-# -----------------------------------------------------------------------------
-## Specify the S3 endpoint URI
-s3_endpoint: http://minio:9000
-## This enables/disables the ssl verification for the S3 endpoint
-s3_skip_ssl_verification: true
 
 # Conan config
 # -----------------------------------------------------------------------------
