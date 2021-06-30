@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/elbb/bb-buildingblock/master/.assets/logo.png" height="200">
+<img src="https://raw.githubusercontent.com/elbb/bb-buildingblock/main/.assets/logo.png" height="200">
 
 # (e)mbedded (l)inux (b)uilding (b)locks - containerized C++ build and runtime environment
 
@@ -255,7 +255,7 @@ Upload the pipeline file with fly:
 
     $ fly -t <target> set-pipeline -n -p bb-cplusplus -l ci/config.yaml -l ci/credentials.yaml -l ci/email.yaml -c ci/pipeline.yaml
 
-After successfully uploading the pipeline to concourse CI login and unpause it. After that the pipeline should be triggered by new commits on the master branch (or new tags if enabled in `ci/pipeline.yaml`).
+After successfully uploading the pipeline to concourse CI login and unpause it. After that the pipeline should be triggered by new commits on the main branch (or new tags if enabled in `ci/pipeline.yaml`).
 
 # What is embedded linux building blocks
 
